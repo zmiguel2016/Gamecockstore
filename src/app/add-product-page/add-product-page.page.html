@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>new-item</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
+    <ion-item>
+      <ion-label color="primary" position="floating">Title</ion-label>
+      <ion-input type="text" formControlName="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Description</ion-label>
+      <ion-input type="text" formControlName="description" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Price</ion-label>
+      <ion-input type="number" formControlName="price" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">Category</ion-label>
+      <ion-select placeholder="Select One" formControlName="category" required>
+        <ion-select-option value="toy">Toy</ion-select-option>
+        <ion-select-option value="food">Food</ion-select-option>
+        <ion-select-option value="drink">Drink</ion-select-option>
+      </ion-select>
+    </ion-item>
+<!--
+<ion-item>
+     <ion-label>BS degree?</ion-label>
+    <ion-checkbox color="primary" formControlName="BS"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>MM DD YY</ion-label>
+  <ion-datetime displayFormat="MM DD YY" placeholder="Select Date" formControlName="date"></ion-datetime>
+</ion-item>
+-->
+<ion-button (click)="captureImage()">
+  Click Picture
+</ion-button>
+
+<!--<img [src]="clickedImage" />-->
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
+  </form>
+
+</ion-content>
